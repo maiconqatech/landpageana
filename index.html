@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Achadinhos da Ana 💕 | Grupo no WhatsApp</title>
   <meta name="description" content="Os melhores achadinhos de moda, beleza, acessórios e presentes da Shopee e do Mercado Livre, direto no seu WhatsApp. Entrada gratuita.">
-  <meta name="theme-color" content="#fff6f9">
+  <meta name="theme-color" content="#fbf3ea">
   <meta property="og:title" content="Achadinhos da Ana 💕">
   <meta property="og:description" content="Garanta os melhores achadinhos que você merece 👀 Entre grátis no grupo do WhatsApp.">
   <meta property="og:image" content="ana-hero.jpg">
@@ -35,9 +35,11 @@
 
   <style>
     :root {
-      --bg: #fff6f9;
-      --bg-soft: #ffe9f1;
-      --card: #ffffff;
+      --bg: #fbf3ea;
+      --bg-soft: #f6e8da;
+      --card: #fffdfa;
+      --gold: #d9b77a;
+      --gold-soft: #ead7b4;
       --ink: #3b1027;
       --ink-soft: #7a4a63;
       --pink: #ec4899;
@@ -110,20 +112,22 @@
     .hero {
       padding: 22px 0 40px;
       background:
-        radial-gradient(circle at 90% 0%, rgba(236,72,153,.22), transparent 45%),
-        radial-gradient(circle at 0% 70%, rgba(251,207,232,.8), transparent 50%);
+        radial-gradient(circle at 90% 0%, rgba(236,72,153,.12), transparent 45%),
+        radial-gradient(circle at 0% 70%, rgba(234,215,180,.55), transparent 50%),
+        linear-gradient(180deg, #fdf7f0 0%, var(--bg) 100%);
     }
     .hero .wrap { display: grid; gap: 28px; align-items: center; }
     .hero-text { text-align: center; }
     .brand {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 7px 16px; border-radius: 999px;
-      background: var(--card); border: 1px solid var(--pink-light);
+      background: var(--card); border: 1px solid var(--gold-soft);
       font-weight: 700; font-size: .95rem; color: var(--pink-deep);
       box-shadow: 0 6px 16px -10px rgba(214,31,122,.4);
     }
     .hero h1 { font-size: clamp(1.95rem, 8.2vw, 3.5rem); margin: 14px 0 12px; }
     .hero h1 em { font-style: normal; color: var(--pink-deep); }
+    .brand img { width: 22px; height: 22px; }
     .hero p.lead { font-size: 1.08rem; color: var(--ink-soft); margin: 0 auto 22px; max-width: 460px; }
 
     /* Foto da Ana */
@@ -132,7 +136,7 @@
       position: relative; border-radius: 28px; overflow: hidden;
       aspect-ratio: 1 / 1;
       background: var(--pink-light);
-      box-shadow: 0 0 0 5px #fff, 0 0 50px -10px rgba(236,72,153,.6), 0 30px 60px -30px rgba(90,10,50,.5);
+      box-shadow: 0 0 0 5px #fff, 0 0 0 6.5px var(--gold-soft), 0 30px 60px -30px rgba(90,50,20,.45);
     }
     .photo img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -144,14 +148,14 @@
     }
     .avatar {
       width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
-      background: linear-gradient(135deg, var(--pink), var(--pink-deep));
-      display: grid; place-items: center; font-size: 1.1rem;
+      position: relative; overflow: hidden; background: var(--pink-light);
     }
+    .avatar img { position: absolute; width: 380%; max-width: none; height: auto; left: -159%; top: -49%; }
     .chat-head b { display: block; font-size: .95rem; line-height: 1.2; }
     .chat-head small { opacity: .8; font-size: .75rem; }
 
     /* ---------- PROVA VISUAL ---------- */
-    .proof { background: var(--card); }
+    .proof { background: linear-gradient(180deg, #fffaf4 0%, #fdf5ec 100%); border-block: 1px solid var(--gold-soft); }
     .proof p.sub { text-align: center; color: var(--ink-soft); margin: 10px auto 30px; max-width: 420px; }
     .big-phone {
       width: 100%; max-width: 340px; margin: 0 auto;
@@ -173,42 +177,64 @@
     }
     .dots button[aria-current="true"] { width: 26px; background: var(--pink); }
     .dots button { position: relative; touch-action: manipulation; }
+    .dots button:not([aria-current="true"]) { background: var(--gold-soft); }
     .dots button::before { content: ""; position: absolute; inset: -12px -5px; }
     .dots button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
     .proof-cta { text-align: center; margin-top: 30px; }
     .urgency {
       display: block; width: fit-content; margin: 0 auto 16px; padding: 8px 16px; border-radius: 999px;
-      background: var(--bg-soft); color: var(--pink-deep); font-weight: 700; font-size: .95rem;
+      background: var(--card); border: 1px solid var(--gold-soft); color: var(--pink-deep); font-weight: 700; font-size: .95rem;
     }
+    .urgency img { width: 20px; height: 20px; display: inline-block; vertical-align: -4px; margin-right: 4px; }
     .proof .disclaimer { text-align: center; font-size: .82rem; color: #a07a8d; margin-top: 12px; }
 
     /* ---------- QUEM É A ANA ---------- */
     .about { text-align: center; }
     .about-card {
       max-width: 640px; margin: 0 auto;
-      background: var(--card); border: 1px solid var(--pink-light); border-radius: 28px;
-      padding: 32px 24px; box-shadow: var(--shadow);
+      background: linear-gradient(180deg, #fffdfa 0%, #f8eee3 100%); border: 1.5px solid var(--gold); border-radius: 28px;
+      padding: 32px 24px; box-shadow: 0 18px 36px -22px rgba(120, 80, 40, .45), inset 0 1px 0 #fff;
     }
     .about-pic {
       position: relative; width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 16px; overflow: hidden;
-      box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--pink-light);
+      box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--gold);
     }
     /* Recorta o rosto da Ana de dentro da arte do topo */
     .about-pic img { position: absolute; width: 380%; max-width: none; height: auto; left: -159%; top: -49%; }
     .about h2 { font-size: clamp(1.6rem, 6vw, 2.2rem); margin-bottom: 12px; }
+    .about h2 .wave { display: inline-block; width: 1.1em; height: 1.1em; vertical-align: -.15em; }
     .about p { color: var(--ink-soft); font-size: 1.05rem; max-width: 500px; margin: 0 auto; }
-    .cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 640px; margin: 24px auto 0; }
+
+    /* ---------- COMO FUNCIONA + CATEGORIAS ---------- */
+    .how {
+      text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(180deg, #fbf3ea 0%, #f7ece0 100%);
+    }
+    .how .wrap { position: relative; }
+    .steps { font-family: "Fraunces", Georgia, serif; font-weight: 800; font-size: clamp(2rem, 9vw, 2.8rem); line-height: 1.12; }
+    .steps span { display: inline-block; }
+    .steps span:nth-child(2), .steps span:nth-child(3) { color: var(--pink-deep); }
+    .cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 640px; margin: 32px auto 0; }
     .cat {
-      background: var(--card); border-radius: var(--radius); padding: 18px 10px;
-      border: 1px solid var(--pink-light); font-weight: 700; font-size: 1.05rem;
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      background: linear-gradient(180deg, #fffdfa 0%, #f6ebdf 100%);
+      border: 1.5px solid var(--gold); border-radius: 24px; padding: 22px 10px 18px;
+      font-weight: 700; font-size: 1.15rem; color: var(--ink);
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      box-shadow: 0 14px 28px -18px rgba(120, 80, 40, .45), inset 0 1px 0 #fff;
       transition: transform .3s var(--ease), box-shadow .3s var(--ease);
     }
-    .cat span { font-size: 1.8rem; }
-    .cat:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .cat img { width: 72px; height: 72px; filter: drop-shadow(0 8px 10px rgba(90, 50, 20, .22)); }
+    .cat:hover { transform: translateY(-4px); box-shadow: 0 22px 36px -18px rgba(120, 80, 40, .5), inset 0 1px 0 #fff; }
+    /* Corações e brilhos dourados de enfeite */
+    .deco { position: absolute; color: var(--gold); pointer-events: none; line-height: 1; opacity: .9; }
+    .deco.d1 { top: -18px; right: 6%; font-size: 2rem; }
+    .deco.d2 { top: 34%; left: -2px; font-size: 1.7rem; }
+    .deco.d3 { bottom: -10px; left: 16%; font-size: 1.4rem; }
+    .deco.d4 { bottom: 16%; right: 0; font-size: 1.8rem; }
+    .deco.d5 { top: 8px; right: 18%; font-size: 1rem; }
 
     /* ---------- BENEFÍCIO ---------- */
-    .pain { padding-top: 0; }
+    .pain { padding-top: 64px; }
     .pain .box {
       max-width: 760px; margin: 0 auto;
       background: linear-gradient(135deg, #3b1027, #7a1a50);
@@ -216,8 +242,8 @@
       position: relative; overflow: hidden;
     }
     .pain .box::before {
-      content: "💕"; position: absolute; font-size: 9rem; opacity: .08;
-      right: -20px; bottom: -40px; transform: rotate(-12deg);
+      content: "♡"; position: absolute; font-size: 10rem; color: var(--gold); opacity: .18; line-height: 1;
+      right: 0; bottom: -30px; transform: rotate(-12deg);
     }
     .pain h2 { font-size: clamp(1.6rem, 6vw, 2.3rem); margin-bottom: 14px; }
     .pain p { color: #f9d3e5; font-size: 1.08rem; max-width: 520px; margin: 0 auto; }
@@ -226,8 +252,8 @@
     .faq { padding-top: 0; }
     .faq .list { max-width: 640px; margin: 26px auto 0; display: grid; gap: 10px; }
     .faq details {
-      background: var(--card); border: 1px solid var(--pink-light); border-radius: 18px;
-      padding: 0 20px;
+      background: var(--card); border: 1px solid var(--gold-soft); border-radius: 18px;
+      padding: 0 20px; box-shadow: 0 10px 22px -18px rgba(120, 80, 40, .4);
     }
     .faq summary {
       list-style: none; cursor: pointer; padding: 18px 0;
@@ -251,9 +277,9 @@
     .sticky {
       position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
       padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-      background: rgba(255, 246, 249, .92);
+      background: rgba(251, 243, 234, .92);
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      border-top: 1px solid var(--pink-light);
+      border-top: 1px solid var(--gold-soft);
       display: flex; flex-direction: column; align-items: center;
       transform: translateY(110%);
       transition: transform .4s var(--ease);
@@ -277,7 +303,7 @@
     @media (min-width: 880px) {
       body { padding-bottom: 0; }
       section { padding: 96px 0; }
-      .pain, .faq { padding-top: 0; }
+      .faq { padding-top: 0; }
       .final { padding-top: 24px; }
       .hero { padding: 48px 0 88px; }
       .hero .wrap { grid-template-columns: 1.05fr .95fr; gap: 48px; }
@@ -286,7 +312,8 @@
       .hero p.lead { margin-left: 0; }
       .hero .perks { justify-content: flex-start; }
       .visual { max-width: 460px; }
-      .cats { grid-template-columns: repeat(4, 1fr); }
+      .cats { grid-template-columns: repeat(4, 1fr); max-width: 820px; }
+      .pain { padding-top: 96px; }
       .pain .box { padding: 56px 48px; }
       .about-card { padding: 40px 48px; }
       .sticky { display: none; }
@@ -294,7 +321,7 @@
       .qr {
         display: inline-flex; align-items: center; gap: 14px; margin-top: 20px;
         padding: 10px 16px 10px 10px; border-radius: 18px;
-        background: var(--card); border: 1px solid var(--pink-light);
+        background: var(--card); border: 1px solid var(--gold-soft);
         text-align: left; font-size: .9rem; color: var(--ink-soft);
       }
       .qr img { width: 84px; height: 84px; }
@@ -325,8 +352,8 @@
   <header class="hero">
     <div class="wrap">
       <div class="hero-text">
-        <span class="brand">🛍️ Achadinhos da Ana</span>
-        <h1>Os <em>melhores achadinhos</em> da Shopee e do Mercado Livre, direto no seu WhatsApp 💕</h1>
+        <span class="brand"><img src="ic-sacolas.png" alt="" width="22" height="22">Achadinhos da Ana</span>
+        <h1>Os <em>melhores achadinhos</em> da Shopee e do Mercado Livre, direto no seu WhatsApp</h1>
         <p class="lead">Pare de garimpar por horas: a Ana seleciona moda, beleza, acessórios e presentes que valem a pena e manda no grupo.</p>
         <a class="cta" id="hero-cta" data-cta="topo" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
           <b><svg aria-hidden="true"><use href="#wa"/></svg>Entrar no grupo grátis</b>
@@ -355,12 +382,12 @@
     <!-- PROVA VISUAL DO GRUPO -->
     <section class="proof">
       <div class="wrap">
-        <h2 class="title reveal">Olha alguns tipos de achadinhos que aparecem por lá 👀</h2>
+        <h2 class="title reveal">Olha alguns tipos de achadinhos que aparecem por lá</h2>
         <p class="sub reveal">Prints reais do que chega no seu WhatsApp quando você entra no grupo.</p>
         <div class="big-phone reveal">
           <div class="screen">
             <div class="chat-head">
-              <div class="avatar">💕</div>
+              <div class="avatar"><img src="ana-hero.jpg" alt="" width="1080" height="1080" loading="lazy"></div>
               <div><b>Achadinhos da Ana</b><small>grupo no WhatsApp</small></div>
             </div>
             <div class="shots" id="shots" aria-label="Prints de mensagens enviadas no grupo">
@@ -379,7 +406,7 @@
         </div>
         <p class="disclaimer">Preços e estoque podem mudar.</p>
         <div class="proof-cta">
-          <p class="urgency">⚡ Preço de achadinho muda rápido. No grupo você fica sabendo na hora.</p>
+          <p class="urgency"><img src="ic-raio.png" alt="" width="20" height="20">Preço de achadinho muda rápido. No grupo você fica sabendo na hora.</p>
           <a class="cta js-inline-cta" data-cta="depois-dos-prints" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
             <b><svg aria-hidden="true"><use href="#wa"/></svg>Quero receber os achadinhos</b>
             <small>Entrada grátis no grupo do WhatsApp</small>
@@ -397,14 +424,26 @@
       <div class="wrap">
         <div class="about-card reveal">
           <div class="about-pic"><img src="ana-hero.jpg" alt="" width="1080" height="1080" loading="lazy"></div>
-          <h2>Oi, eu sou a Ana 👋</h2>
+          <h2>Oi, eu sou a Ana <img class="wave" src="ic-tchau.png" alt="" width="34" height="34"></h2>
           <p>Eu passo horas garimpando na Shopee e no Mercado Livre pra você não precisar. No grupo eu mando só o que acho que vale a pena, com o link direto pra comprar.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA + CATEGORIAS -->
+    <section class="how">
+      <div class="wrap">
+        <span class="deco d1" aria-hidden="true">♡</span>
+        <span class="deco d5" aria-hidden="true">✦</span>
+        <span class="deco d2" aria-hidden="true">♡</span>
+        <span class="deco d3" aria-hidden="true">✧</span>
+        <span class="deco d4" aria-hidden="true">♡</span>
+        <p class="steps reveal"><span>Você entra.</span> <span>Descobre.</span> <span>Escolhe.</span></p>
         <div class="cats">
-          <div class="cat reveal"><span>👗</span>Moda</div>
-          <div class="cat reveal"><span>💄</span>Beleza</div>
-          <div class="cat reveal"><span>👜</span>Acessórios</div>
-          <div class="cat reveal"><span>🎁</span>Presentes</div>
+          <div class="cat reveal"><img src="cat-moda.png" alt="" width="72" height="72" loading="lazy">Moda</div>
+          <div class="cat reveal"><img src="cat-beleza.png" alt="" width="72" height="72" loading="lazy">Beleza</div>
+          <div class="cat reveal"><img src="cat-acessorios.png" alt="" width="72" height="72" loading="lazy">Acessórios</div>
+          <div class="cat reveal"><img src="cat-presentes.png" alt="" width="72" height="72" loading="lazy">Presentes</div>
         </div>
       </div>
     </section>
@@ -447,7 +486,7 @@
     <!-- CTA FINAL -->
     <section class="final">
       <div class="wrap reveal">
-        <h2 class="title">Quer ver os próximos? 👀</h2>
+        <h2 class="title">Quer ver os próximos?</h2>
         <p class="sub">Os próximos achadinhos vão direto para o grupo.</p>
         <a class="cta" id="final-cta" data-cta="final" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
           <b><svg aria-hidden="true"><use href="#wa"/></svg>Entrar no grupo grátis</b>
@@ -466,7 +505,7 @@
     </section>
   </main>
 
-  <footer>© Achadinhos da Ana 💕</footer>
+  <footer>© Achadinhos da Ana</footer>
 
   <!-- Botão fixo no rodapé (celular) -->
   <div class="sticky" id="sticky">
