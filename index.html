@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Achadinhos da Ana 💕 | Grupo no WhatsApp</title>
-  <meta name="description" content="Moda, beleza, acessórios e produtos femininos encontrados na Shopee e no Mercado Livre, direto no seu WhatsApp. Entrada gratuita.">
+  <meta name="description" content="Os melhores achadinhos de moda, beleza, acessórios e presentes da Shopee e do Mercado Livre, direto no seu WhatsApp. Entrada gratuita.">
   <meta name="theme-color" content="#fff6f9">
   <meta property="og:title" content="Achadinhos da Ana 💕">
-  <meta property="og:description" content="Descubra seu próximo achadinho 👀 Entre grátis no grupo do WhatsApp.">
+  <meta property="og:description" content="Garanta os melhores achadinhos que você merece 👀 Entre grátis no grupo do WhatsApp.">
   <meta property="og:image" content="ana-hero.jpg">
   <meta property="og:type" content="website">
   <script>document.documentElement.classList.add("js");</script>
@@ -60,7 +60,7 @@
       overflow-x: hidden;
       padding-bottom: 104px;
     }
-    h1, h2, h3, .steps { font-family: "Fraunces", Georgia, serif; line-height: 1.1; letter-spacing: -.01em; text-wrap: balance; }
+    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; line-height: 1.1; letter-spacing: -.01em; text-wrap: balance; }
     img { display: block; max-width: 100%; }
 
     .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
@@ -81,7 +81,8 @@
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
     }
-    .cta b { font-size: 1.15rem; letter-spacing: .03em; text-transform: uppercase; }
+    .cta b { display: inline-flex; align-items: center; gap: 10px; font-size: 1.15rem; letter-spacing: .03em; text-transform: uppercase; }
+    .cta b svg { width: 1.45em; height: 1.45em; flex-shrink: 0; }
     .cta small { font-size: .88rem; opacity: .92; margin-top: 2px; }
     .cta::after {
       content: ""; position: absolute; inset: 0;
@@ -92,10 +93,18 @@
     .cta:hover { transform: translateY(-2px); box-shadow: 0 24px 48px -18px rgba(214, 31, 122, .6); }
     .cta:active { transform: translateY(1px) scale(.99); }
     .cta:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
-    .cta-note { margin-top: 12px; font-size: .95rem; color: var(--ink-soft); display: flex; align-items: center; justify-content: center; gap: 6px; }
-    .trust { margin-top: 6px; font-size: .88rem; color: var(--ink-soft); opacity: .9; }
-    .cta-note::before { content: "✓"; color: var(--wa); font-weight: 700; }
     @keyframes shine { 0%, 60% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+    /* Garantias logo abaixo do botão */
+    .perks {
+      list-style: none; margin-top: 12px;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px;
+      font-size: .9rem; color: var(--ink-soft);
+    }
+    .perks li::before { content: "✓ "; color: var(--wa); font-weight: 700; }
+
+    /* QR Code: só no computador, onde o link abre o WhatsApp Web */
+    .qr { display: none; }
 
     /* ---------- HERO ---------- */
     .hero {
@@ -106,7 +115,6 @@
     }
     .hero .wrap { display: grid; gap: 28px; align-items: center; }
     .hero-text { text-align: center; }
-    .hero h1 em { white-space: normal; }
     .brand {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 7px 16px; border-radius: 999px;
@@ -114,7 +122,7 @@
       font-weight: 700; font-size: .95rem; color: var(--pink-deep);
       box-shadow: 0 6px 16px -10px rgba(214,31,122,.4);
     }
-    .hero h1 { font-size: clamp(2.05rem, 8.6vw, 3.5rem); margin: 14px 0 12px; }
+    .hero h1 { font-size: clamp(1.95rem, 8.2vw, 3.5rem); margin: 14px 0 12px; }
     .hero h1 em { font-style: normal; color: var(--pink-deep); }
     .hero p.lead { font-size: 1.08rem; color: var(--ink-soft); margin: 0 auto 22px; max-width: 460px; }
 
@@ -141,7 +149,6 @@
     }
     .chat-head b { display: block; font-size: .95rem; line-height: 1.2; }
     .chat-head small { opacity: .8; font-size: .75rem; }
-    @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
 
     /* ---------- PROVA VISUAL ---------- */
     .proof { background: var(--card); }
@@ -169,27 +176,39 @@
     .dots button::before { content: ""; position: absolute; inset: -12px -5px; }
     .dots button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
     .proof-cta { text-align: center; margin-top: 30px; }
-    .proof-cta .cta-note { justify-content: center; }
+    .urgency {
+      display: block; width: fit-content; margin: 0 auto 16px; padding: 8px 16px; border-radius: 999px;
+      background: var(--bg-soft); color: var(--pink-deep); font-weight: 700; font-size: .95rem;
+    }
     .proof .disclaimer { text-align: center; font-size: .82rem; color: #a07a8d; margin-top: 12px; }
 
-
-    /* ---------- COMO FUNCIONA + CATEGORIAS ---------- */
-    .how { text-align: center; }
-    .steps { font-family: "Fraunces", Georgia, serif; font-weight: 800; font-size: clamp(1.8rem, 8vw, 2.8rem); line-height: 1.15; }
-    .steps span { display: inline-block; }
-    .steps span:nth-child(2) { color: var(--pink); }
-    .steps span:nth-child(3) { color: var(--pink-deep); }
-    .cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 640px; margin: 32px auto 0; }
+    /* ---------- QUEM É A ANA ---------- */
+    .about { text-align: center; }
+    .about-card {
+      max-width: 640px; margin: 0 auto;
+      background: var(--card); border: 1px solid var(--pink-light); border-radius: 28px;
+      padding: 32px 24px; box-shadow: var(--shadow);
+    }
+    .about-pic {
+      position: relative; width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 16px; overflow: hidden;
+      box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--pink-light);
+    }
+    /* Recorta o rosto da Ana de dentro da arte do topo */
+    .about-pic img { position: absolute; width: 380%; max-width: none; height: auto; left: -159%; top: -49%; }
+    .about h2 { font-size: clamp(1.6rem, 6vw, 2.2rem); margin-bottom: 12px; }
+    .about p { color: var(--ink-soft); font-size: 1.05rem; max-width: 500px; margin: 0 auto; }
+    .cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 640px; margin: 24px auto 0; }
     .cat {
-      background: var(--card); border-radius: var(--radius); padding: 20px 10px;
+      background: var(--card); border-radius: var(--radius); padding: 18px 10px;
       border: 1px solid var(--pink-light); font-weight: 700; font-size: 1.05rem;
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
       transition: transform .3s var(--ease), box-shadow .3s var(--ease);
     }
-    .cat span { font-size: 2rem; }
+    .cat span { font-size: 1.8rem; }
     .cat:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 
     /* ---------- BENEFÍCIO ---------- */
+    .pain { padding-top: 0; }
     .pain .box {
       max-width: 760px; margin: 0 auto;
       background: linear-gradient(135deg, #3b1027, #7a1a50);
@@ -203,9 +222,28 @@
     .pain h2 { font-size: clamp(1.6rem, 6vw, 2.3rem); margin-bottom: 14px; }
     .pain p { color: #f9d3e5; font-size: 1.08rem; max-width: 520px; margin: 0 auto; }
 
+    /* ---------- DÚVIDAS ---------- */
+    .faq { padding-top: 0; }
+    .faq .list { max-width: 640px; margin: 26px auto 0; display: grid; gap: 10px; }
+    .faq details {
+      background: var(--card); border: 1px solid var(--pink-light); border-radius: 18px;
+      padding: 0 20px;
+    }
+    .faq summary {
+      list-style: none; cursor: pointer; padding: 18px 0;
+      font-weight: 700; font-size: 1.02rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-size: 1.4rem; color: var(--pink); line-height: 1; transition: transform .25s var(--ease); }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq summary:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 8px; }
+    .faq details p { color: var(--ink-soft); padding-bottom: 18px; }
+
     /* ---------- CTA FINAL ---------- */
-    .final { text-align: center; padding-bottom: 72px; }
-    .final h2 { margin-bottom: 26px; }
+    .final { text-align: center; padding-top: 16px; padding-bottom: 72px; }
+    .final h2 { margin-bottom: 10px; }
+    .final p.sub { color: var(--ink-soft); margin: 0 auto 24px; max-width: 420px; }
 
     footer { text-align: center; font-size: .8rem; color: #b08a9c; padding: 0 20px 24px; }
 
@@ -221,9 +259,9 @@
       transition: transform .4s var(--ease);
     }
     .sticky.show { transform: none; }
-    .sticky .cta { padding: 15px 18px; }
+    .sticky .cta { padding: 13px 18px; }
     .sticky .cta b { font-size: 1.02rem; }
-    .sticky .cta-note { margin-top: 6px; font-size: .8rem; }
+    .sticky .perks { margin-top: 6px; font-size: .8rem; }
 
     /* ---------- ENTRADA SUAVE ---------- */
     .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
@@ -239,18 +277,28 @@
     @media (min-width: 880px) {
       body { padding-bottom: 0; }
       section { padding: 96px 0; }
+      .pain, .faq { padding-top: 0; }
+      .final { padding-top: 24px; }
       .hero { padding: 48px 0 88px; }
       .hero .wrap { grid-template-columns: 1.05fr .95fr; gap: 48px; }
       .hero-text { text-align: left; }
-      .hero h1 { font-size: 3.05rem; }
+      .hero h1 { font-size: 3rem; }
       .hero p.lead { margin-left: 0; }
-      .cta-note { justify-content: flex-start; }
-      .hero .trust { text-align: left; }
-      .final .cta-note { justify-content: center; }
+      .hero .perks { justify-content: flex-start; }
       .visual { max-width: 460px; }
       .cats { grid-template-columns: repeat(4, 1fr); }
       .pain .box { padding: 56px 48px; }
+      .about-card { padding: 40px 48px; }
       .sticky { display: none; }
+
+      .qr {
+        display: inline-flex; align-items: center; gap: 14px; margin-top: 20px;
+        padding: 10px 16px 10px 10px; border-radius: 18px;
+        background: var(--card); border: 1px solid var(--pink-light);
+        text-align: left; font-size: .9rem; color: var(--ink-soft);
+      }
+      .qr img { width: 84px; height: 84px; }
+      .qr b { display: block; color: var(--ink); }
     }
     @media (max-width: 480px) {
       .cta { padding: 14px 16px; }
@@ -268,18 +316,31 @@
 <body>
   <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2745130985795775&amp;ev=PageView&amp;noscript=1"></noscript>
 
+  <!-- Ícone do WhatsApp reaproveitado em todos os botões -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.43 1.3-1.97 1.35-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.18-4.94-4.37-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36h.56c.18 0 .42-.07.66.5.24.58.82 2.01.89 2.16.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.3-.13.59.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.22.55.34.07.12.07.7-.17 1.38Z"/></symbol>
+  </svg>
+
   <!-- TOPO -->
   <header class="hero">
     <div class="wrap">
       <div class="hero-text">
         <span class="brand">🛍️ Achadinhos da Ana</span>
-        <h1>Descubra os <em>achadinhos femininos</em> que estão valendo a pena 👀</h1>
-        <p class="lead">Moda, beleza, acessórios e produtos femininos encontrados na Shopee e no Mercado Livre.</p>
+        <h1>Os <em>melhores achadinhos</em> da Shopee e do Mercado Livre, direto no seu WhatsApp 💕</h1>
+        <p class="lead">Pare de garimpar por horas: a Ana seleciona moda, beleza, acessórios e presentes que valem a pena e manda no grupo.</p>
         <a class="cta" id="hero-cta" data-cta="topo" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
-          <b>💗 Quero ver os achadinhos</b>
+          <b><svg aria-hidden="true"><use href="#wa"/></svg>Entrar no grupo grátis</b>
+          <small>Os achadinhos chegam no seu WhatsApp</small>
         </a>
-        <p class="cta-note">Entrada gratuita no grupo do WhatsApp</p>
-        <p class="trust">🔒 Só a Ana envia mensagens · Saia quando quiser</p>
+        <ul class="perks">
+          <li>Grátis</li>
+          <li>Só a Ana envia mensagens</li>
+          <li>Saia quando quiser</li>
+        </ul>
+        <div class="qr">
+          <img src="qr-grupo.svg" alt="QR Code do grupo Achadinhos da Ana no WhatsApp" width="84" height="84">
+          <span><b>Está no computador?</b>Aponte a câmera do celular<br>para entrar pelo WhatsApp.</span>
+        </div>
       </div>
 
       <div class="visual">
@@ -318,19 +379,27 @@
         </div>
         <p class="disclaimer">Preços e estoque podem mudar.</p>
         <div class="proof-cta">
+          <p class="urgency">⚡ Preço de achadinho muda rápido. No grupo você fica sabendo na hora.</p>
           <a class="cta js-inline-cta" data-cta="depois-dos-prints" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
-            <b>💗 Quero ver os achadinhos</b>
+            <b><svg aria-hidden="true"><use href="#wa"/></svg>Quero receber os achadinhos</b>
+            <small>Entrada grátis no grupo do WhatsApp</small>
           </a>
-          <p class="cta-note">Entrada gratuita no grupo do WhatsApp</p>
-          <p class="trust">🔒 Só a Ana envia mensagens · Saia quando quiser</p>
+          <ul class="perks">
+            <li>Só a Ana envia mensagens</li>
+            <li>Saia quando quiser</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- COMO FUNCIONA + CATEGORIAS -->
-    <section class="how">
+    <!-- QUEM É A ANA -->
+    <section class="about">
       <div class="wrap">
-        <p class="steps reveal"><span>Você entra.</span> <span>Descobre.</span> <span>Escolhe.</span></p>
+        <div class="about-card reveal">
+          <div class="about-pic"><img src="ana-hero.jpg" alt="" width="1080" height="1080" loading="lazy"></div>
+          <h2>Oi, eu sou a Ana 👋</h2>
+          <p>Eu passo horas garimpando na Shopee e no Mercado Livre pra você não precisar. No grupo eu mando só o que acho que vale a pena, com o link direto pra comprar.</p>
+        </div>
         <div class="cats">
           <div class="cat reveal"><span>👗</span>Moda</div>
           <div class="cat reveal"><span>💄</span>Beleza</div>
@@ -350,15 +419,49 @@
       </div>
     </section>
 
+    <!-- DÚVIDAS -->
+    <section class="faq">
+      <div class="wrap">
+        <h2 class="title reveal">Dúvidas rápidas</h2>
+        <div class="list">
+          <details class="reveal">
+            <summary>Precisa pagar alguma coisa?</summary>
+            <p>Não. Entrar no grupo é grátis. Você só paga se decidir comprar algum achadinho.</p>
+          </details>
+          <details class="reveal">
+            <summary>Vou receber mensagem demais?</summary>
+            <p>No grupo só a Ana envia mensagens, então não tem conversa paralela. Se preferir, é só silenciar o grupo e olhar quando tiver vontade.</p>
+          </details>
+          <details class="reveal">
+            <summary>É seguro comprar?</summary>
+            <p>Os links levam direto para a Shopee ou o Mercado Livre. Você compra dentro do app deles, do jeito que já está acostumada.</p>
+          </details>
+          <details class="reveal">
+            <summary>E se eu não gostar?</summary>
+            <p>É só sair do grupo, a qualquer momento, sem precisar avisar ninguém.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA FINAL -->
     <section class="final">
       <div class="wrap reveal">
         <h2 class="title">Quer ver os próximos? 👀</h2>
+        <p class="sub">Os próximos achadinhos vão direto para o grupo.</p>
         <a class="cta" id="final-cta" data-cta="final" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
-          <b>💗 Entrar no grupo do WhatsApp</b>
+          <b><svg aria-hidden="true"><use href="#wa"/></svg>Entrar no grupo grátis</b>
+          <small>Grupo Achadinhos da Ana no WhatsApp</small>
         </a>
-        <p class="cta-note">Grátis para entrar.</p>
-        <p class="trust">🔒 Só a Ana envia mensagens · Saia quando quiser</p>
+        <ul class="perks">
+          <li>Grátis</li>
+          <li>Só a Ana envia mensagens</li>
+          <li>Saia quando quiser</li>
+        </ul>
+        <div class="qr">
+          <img src="qr-grupo.svg" alt="QR Code do grupo Achadinhos da Ana no WhatsApp" width="84" height="84" loading="lazy">
+          <span><b>Está no computador?</b>Aponte a câmera do celular<br>para entrar pelo WhatsApp.</span>
+        </div>
       </div>
     </section>
   </main>
@@ -368,9 +471,12 @@
   <!-- Botão fixo no rodapé (celular) -->
   <div class="sticky" id="sticky">
     <a class="cta" data-cta="rodape-fixo" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
-      <b>💗 Quero ver os achadinhos</b>
+      <b><svg aria-hidden="true"><use href="#wa"/></svg>Entrar no grupo grátis</b>
     </a>
-    <p class="cta-note">Entrada gratuita no grupo do WhatsApp</p>
+    <ul class="perks">
+      <li>Só a Ana envia mensagens</li>
+      <li>Saia quando quiser</li>
+    </ul>
   </div>
 
   <script>
