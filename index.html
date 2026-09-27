@@ -134,33 +134,7 @@
     }
     .chat-head b { display: block; font-size: .95rem; line-height: 1.2; }
     .chat-head small { opacity: .8; font-size: .75rem; }
-    .chat { padding: 14px 12px 18px; display: grid; gap: 10px; }
-    .msg {
-      background: #fff; border-radius: 4px 14px 14px 14px; padding: 10px 12px;
-      box-shadow: 0 1px 1px rgba(0,0,0,.08);
-      font-size: .9rem; line-height: 1.4; max-width: 92%;
-      display: flex; gap: 10px; align-items: flex-start;
-    }
-    .msg .em {
-      font-size: 1.7rem; line-height: 1; flex-shrink: 0;
-    }
-    .msg .from { display: block; color: var(--pink-deep); font-weight: 700; font-size: .78em; }
-    .msg .store { display: inline-block; margin-top: 4px; font-size: .72em; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
-    .store.shopee { background: #ffe8df; color: #c83a14; }
-    .store.ml { background: #fff3b8; color: #6b5600; }
-    .typing { display: flex; gap: 4px; padding: 11px 14px; width: fit-content; }
-    .typing span { width: 7px; height: 7px; border-radius: 50%; background: #9aa3a6; animation: blink 1.2s infinite; }
-    .typing span:nth-child(2) { animation-delay: .2s; }
-    .typing span:nth-child(3) { animation-delay: .4s; }
-    .anim .msg { opacity: 0; transform: translateY(10px) scale(.98); transition: opacity .5s var(--ease), transform .5s var(--ease); }
-    .anim.in .msg { opacity: 1; transform: none; }
-    .anim.in .msg:nth-child(2) { transition-delay: .35s; }
-    .anim.in .msg:nth-child(3) { transition-delay: .7s; }
-    .anim.in .msg:nth-child(4) { transition-delay: 1.05s; }
-    .anim.in .msg:nth-child(5) { transition-delay: 1.4s; }
-
     @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
-    @keyframes blink { 0%, 60%, 100% { opacity: .3; } 30% { opacity: 1; } }
 
     /* ---------- PROVA VISUAL ---------- */
     .proof { background: var(--card); }
@@ -170,7 +144,22 @@
       border-radius: 44px; padding: 12px; background: #2a0f1f;
       box-shadow: 0 40px 70px -30px rgba(90, 10, 50, .5);
     }
-    .big-phone .screen { min-height: 440px; }
+    .big-phone .screen { border-radius: 34px; }
+    .shots {
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+      scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      aspect-ratio: 640 / 1076; background: #fbd6e6;
+    }
+    .shots::-webkit-scrollbar { display: none; }
+    .shots img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; object-position: top; scroll-snap-align: start; }
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+    .dots button {
+      width: 9px; height: 9px; border-radius: 999px; border: 0; padding: 0; cursor: pointer;
+      background: var(--pink-light); transition: width .35s var(--ease), background .35s var(--ease);
+    }
+    .dots button[aria-current="true"] { width: 26px; background: var(--pink); }
+    .proof .disclaimer { text-align: center; font-size: .82rem; color: #a07a8d; margin-top: 12px; }
+
 
     /* ---------- COMO FUNCIONA + CATEGORIAS ---------- */
     .how { text-align: center; }
@@ -259,7 +248,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
-      .reveal, .anim .msg { opacity: 1; transform: none; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -296,22 +285,28 @@
     <section class="proof">
       <div class="wrap">
         <h2 class="title reveal">Olha alguns tipos de achadinhos que aparecem por lá 👀</h2>
-        <p class="sub reveal">É isso que chega no seu WhatsApp quando você entra no grupo.</p>
-        <div class="big-phone reveal" aria-label="Exemplo de mensagens do grupo">
+        <p class="sub reveal">Prints reais do que chega no seu WhatsApp quando você entra no grupo.</p>
+        <div class="big-phone reveal">
           <div class="screen">
             <div class="chat-head">
               <div class="avatar">💕</div>
               <div><b>Achadinhos da Ana</b><small>grupo no WhatsApp</small></div>
             </div>
-            <div class="chat anim" id="proof-chat">
-              <div class="msg"><span class="em">👗</span><span><span class="from">Ana</span>Achei esse vestido midi floral perfeito pro calor 😍<br><span class="store shopee">Shopee</span></span></div>
-              <div class="msg"><span class="em">💄</span><span><span class="from">Ana</span>Kit de batom matte com cores lindas pra usar todo dia 💋<br><span class="store ml">Mercado Livre</span></span></div>
-              <div class="msg"><span class="em">👜</span><span><span class="from">Ana</span>Bolsa tiracolo que combina com tudo 👀<br><span class="store shopee">Shopee</span></span></div>
-              <div class="msg"><span class="em">✨</span><span><span class="from">Ana</span>Organizador de maquiagem que mudou minha penteadeira 🥰<br><span class="store ml">Mercado Livre</span></span></div>
-              <div class="msg typing"><span></span><span></span><span></span></div>
+            <div class="shots" id="shots" aria-label="Prints de mensagens enviadas no grupo">
+              <img src="print-1.jpg" alt="Mensagem do grupo: tamanco feminino salto médio da Shopee" width="640" height="1076" loading="lazy">
+              <img src="print-2.jpg" alt="Mensagem do grupo: blusa feminina alça fina com renda da Shopee" width="640" height="1076" loading="lazy">
+              <img src="print-3.jpg" alt="Mensagem do grupo: tratamento reconstrutor Truss da Shopee" width="640" height="1076" loading="lazy">
+              <img src="print-4.jpg" alt="Mensagem do grupo: colar trevo banhado a ouro da Shopee" width="640" height="1064" loading="lazy">
             </div>
           </div>
         </div>
+        <div class="dots" id="dots">
+          <button type="button" aria-label="Ver print 1" aria-current="true"></button>
+          <button type="button" aria-label="Ver print 2"></button>
+          <button type="button" aria-label="Ver print 3"></button>
+          <button type="button" aria-label="Ver print 4"></button>
+        </div>
+        <p class="disclaimer">Preços e estoque podem mudar.</p>
       </div>
     </section>
 
@@ -361,7 +356,7 @@
   </div>
 
   <script>
-    var revealEls = document.querySelectorAll(".reveal, .anim");
+    var revealEls = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
@@ -388,6 +383,33 @@
     }, { passive: true });
     window.addEventListener("resize", updateSticky);
     updateSticky();
+    // Carrossel de prints: passa sozinho e pausa quando a pessoa arrasta
+    var shots = document.getElementById("shots");
+    var dots = document.querySelectorAll("#dots button");
+    var current = 0, pausedUntil = 0;
+    function goTo(i) { shots.scrollTo({ left: i * shots.clientWidth, behavior: "smooth" }); }
+    shots.addEventListener("scroll", function () {
+      var i = Math.round(shots.scrollLeft / shots.clientWidth);
+      if (i !== current) {
+        current = i;
+        dots.forEach(function (d, j) { d.setAttribute("aria-current", j === i ? "true" : "false"); });
+      }
+    }, { passive: true });
+    ["pointerdown", "touchstart", "wheel"].forEach(function (ev) {
+      shots.addEventListener(ev, function () { pausedUntil = Date.now() + 8000; }, { passive: true });
+    });
+    dots.forEach(function (d, j) {
+      d.addEventListener("click", function () { pausedUntil = Date.now() + 8000; goTo(j); });
+    });
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setInterval(function () {
+        if (Date.now() < pausedUntil || document.hidden) return;
+        var r = shots.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return;
+        goTo((current + 1) % dots.length);
+      }, 3500);
+    }
+
     if (!("IntersectionObserver" in window)) {
       revealEls.forEach(function (el) { el.classList.add("in"); });
     }
