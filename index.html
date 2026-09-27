@@ -13,9 +13,25 @@
   <script>document.documentElement.classList.add("js");</script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
   <link rel="preload" as="image" href="ana-hero.jpg">
+  <link rel="preconnect" href="https://connect.facebook.net">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,"script",
+  "https://connect.facebook.net/en_US/fbevents.js");
+  fbq("init", "2745130985795775");
+  fbq("track", "PageView");
+  </script>
+  <!-- End Meta Pixel Code -->
 
   <style>
     :root {
@@ -248,6 +264,7 @@
   </style>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2745130985795775&amp;ev=PageView&amp;noscript=1"></noscript>
 
   <!-- TOPO -->
   <header class="hero">
@@ -256,7 +273,7 @@
         <span class="brand">🛍️ Achadinhos da Ana</span>
         <h1>Descubra os <em>achadinhos femininos</em> que estão valendo a pena 👀</h1>
         <p class="lead">Moda, beleza, acessórios e produtos femininos encontrados na Shopee e no Mercado Livre.</p>
-        <a class="cta" id="hero-cta" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
+        <a class="cta" id="hero-cta" data-cta="topo" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
           <b>💗 Quero ver os achadinhos</b>
         </a>
         <p class="cta-note">Entrada gratuita no grupo do WhatsApp</p>
@@ -298,7 +315,7 @@
         </div>
         <p class="disclaimer">Preços e estoque podem mudar.</p>
         <div class="proof-cta">
-          <a class="cta js-inline-cta" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
+          <a class="cta js-inline-cta" data-cta="depois-dos-prints" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
             <b>💗 Quero ver os achadinhos</b>
           </a>
           <p class="cta-note">Entrada gratuita no grupo do WhatsApp</p>
@@ -333,7 +350,7 @@
     <section class="final">
       <div class="wrap reveal">
         <h2 class="title">Quer ver os próximos? 👀</h2>
-        <a class="cta" id="final-cta" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
+        <a class="cta" id="final-cta" data-cta="final" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
           <b>💗 Entrar no grupo do WhatsApp</b>
         </a>
         <p class="cta-note">Grátis para entrar.</p>
@@ -345,13 +362,20 @@
 
   <!-- Botão fixo no rodapé (celular) -->
   <div class="sticky" id="sticky">
-    <a class="cta" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
+    <a class="cta" data-cta="rodape-fixo" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
       <b>💗 Quero ver os achadinhos</b>
     </a>
     <p class="cta-note">Entrada gratuita no grupo do WhatsApp</p>
   </div>
 
   <script>
+    // Meta Pixel: cada clique para entrar no grupo conta como Lead, com o botão que foi clicado
+    document.querySelectorAll("[data-cta]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (window.fbq) fbq("track", "Lead", { content_name: "Grupo WhatsApp", content_category: a.dataset.cta });
+      });
+    });
+
     var revealEls = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (entries) {
