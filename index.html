@@ -87,6 +87,7 @@
     }
     .hero .wrap { display: grid; gap: 28px; align-items: center; }
     .hero-text { text-align: center; }
+    .hero h1 em { white-space: normal; }
     .brand {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 7px 16px; border-radius: 999px;
@@ -94,7 +95,7 @@
       font-weight: 700; font-size: .95rem; color: var(--pink-deep);
       box-shadow: 0 6px 16px -10px rgba(214,31,122,.4);
     }
-    .hero h1 { font-size: clamp(2.3rem, 10vw, 4rem); margin: 14px 0 12px; }
+    .hero h1 { font-size: clamp(2.05rem, 8.6vw, 3.5rem); margin: 14px 0 12px; }
     .hero h1 em { font-style: normal; color: var(--pink-deep); }
     .hero p.lead { font-size: 1.08rem; color: var(--ink-soft); margin: 0 auto 22px; max-width: 460px; }
 
@@ -214,14 +215,14 @@
       background: rgba(255, 246, 249, .92);
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
       border-top: 1px solid var(--pink-light);
-      display: flex; justify-content: center;
+      display: flex; flex-direction: column; align-items: center;
       transform: translateY(110%);
       transition: transform .4s var(--ease);
     }
     .sticky.show { transform: none; }
-    .sticky .cta { padding: 12px 18px; }
+    .sticky .cta { padding: 15px 18px; }
     .sticky .cta b { font-size: 1.02rem; }
-    .sticky .cta small { font-size: .78rem; }
+    .sticky .cta-note { margin-top: 6px; font-size: .8rem; }
 
     /* ---------- ENTRADA SUAVE ---------- */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
@@ -240,6 +241,7 @@
       .hero { padding: 48px 0 88px; }
       .hero .wrap { grid-template-columns: 1.05fr .95fr; gap: 48px; }
       .hero-text { text-align: left; }
+      .hero h1 { font-size: 3.05rem; }
       .hero p.lead { margin-left: 0; }
       .cta-note { justify-content: flex-start; }
       .final .cta-note { justify-content: center; }
@@ -253,7 +255,6 @@
       .cta b { font-size: 1rem; letter-spacing: .01em; }
       .cta small { font-size: .8rem; }
       .sticky .cta b { font-size: .95rem; }
-      .sticky .cta small { font-size: .74rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -269,12 +270,12 @@
     <div class="wrap">
       <div class="hero-text">
         <span class="brand">🛍️ Achadinhos da Ana</span>
-        <h1>Descubra seu próximo <em>achadinho</em> 👀</h1>
+        <h1>Descubra os <em>achadinhos femininos</em> que estão valendo a pena 👀</h1>
         <p class="lead">Moda, beleza, acessórios e produtos femininos encontrados na Shopee e no Mercado Livre.</p>
         <a class="cta" id="hero-cta" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
           <b>💗 Quero ver os achadinhos</b>
-          <small>Entrar gratuitamente no grupo do WhatsApp →</small>
         </a>
+        <p class="cta-note">Entrada gratuita no grupo do WhatsApp</p>
       </div>
 
       <div class="visual">
@@ -355,8 +356,8 @@
   <div class="sticky" id="sticky">
     <a class="cta" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
       <b>💗 Quero ver os achadinhos</b>
-      <small>Entrar gratuitamente no grupo do WhatsApp →</small>
     </a>
+    <p class="cta-note">Entrada gratuita no grupo do WhatsApp</p>
   </div>
 
   <script>
