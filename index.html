@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Achadinhos da Ana 💕 | Grupo no WhatsApp</title>
   <meta name="description" content="Moda, beleza, acessórios e produtos femininos encontrados na Shopee e no Mercado Livre, direto no seu WhatsApp. Entrada gratuita.">
-  <meta name="theme-color" content="#ec4899">
+  <meta name="theme-color" content="#fff6f9">
   <meta property="og:title" content="Achadinhos da Ana 💕">
   <meta property="og:description" content="Descubra seu próximo achadinho 👀 Entre grátis no grupo do WhatsApp.">
   <meta property="og:image" content="ana-hero.jpg">
   <meta property="og:type" content="website">
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
   <link rel="preload" as="image" href="ana-hero.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +44,7 @@
       overflow-x: hidden;
       padding-bottom: 104px;
     }
-    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; line-height: 1.1; letter-spacing: -.01em; }
+    h1, h2, h3, .steps { font-family: "Fraunces", Georgia, serif; line-height: 1.1; letter-spacing: -.01em; text-wrap: balance; }
     img { display: block; max-width: 100%; }
 
     .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
@@ -62,6 +63,7 @@
       transition: transform .25s var(--ease), box-shadow .25s var(--ease);
       position: relative; overflow: hidden;
       -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
     .cta b { font-size: 1.15rem; letter-spacing: .03em; text-transform: uppercase; }
     .cta small { font-size: .88rem; opacity: .92; margin-top: 2px; }
@@ -146,6 +148,11 @@
       background: var(--pink-light); transition: width .35s var(--ease), background .35s var(--ease);
     }
     .dots button[aria-current="true"] { width: 26px; background: var(--pink); }
+    .dots button { position: relative; touch-action: manipulation; }
+    .dots button::before { content: ""; position: absolute; inset: -12px -5px; }
+    .dots button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+    .proof-cta { text-align: center; margin-top: 30px; }
+    .proof-cta .cta-note { justify-content: center; }
     .proof .disclaimer { text-align: center; font-size: .82rem; color: #a07a8d; margin-top: 12px; }
 
 
@@ -202,8 +209,8 @@
     .sticky .cta-note { margin-top: 6px; font-size: .8rem; }
 
     /* ---------- ENTRADA SUAVE ---------- */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-    .reveal.in { opacity: 1; transform: none; }
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .js .reveal.in { opacity: 1; transform: none; }
     .cats .reveal:nth-child(2) { transition-delay: .08s; }
     .cats .reveal:nth-child(3) { transition-delay: .16s; }
     .cats .reveal:nth-child(4) { transition-delay: .24s; }
@@ -236,7 +243,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
-      .reveal { opacity: 1; transform: none; }
+      .js .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -290,6 +297,12 @@
           <button type="button" aria-label="Ver print 4"></button>
         </div>
         <p class="disclaimer">Preços e estoque podem mudar.</p>
+        <div class="proof-cta">
+          <a class="cta js-inline-cta" href="https://chat.whatsapp.com/Jau7AxliFQX1az2Ez6DvlM?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">
+            <b>💗 Quero ver os achadinhos</b>
+          </a>
+          <p class="cta-note">Entrada gratuita no grupo do WhatsApp</p>
+        </div>
       </div>
     </section>
 
@@ -301,7 +314,7 @@
           <div class="cat reveal"><span>👗</span>Moda</div>
           <div class="cat reveal"><span>💄</span>Beleza</div>
           <div class="cat reveal"><span>👜</span>Acessórios</div>
-          <div class="cat reveal"><span>🛍️</span>Achadinhos</div>
+          <div class="cat reveal"><span>🎁</span>Presentes</div>
         </div>
       </div>
     </section>
@@ -349,17 +362,23 @@
       revealEls.forEach(function (el) { io.observe(el); });
     }
 
-    // Botão fixo: aparece depois que o botão do topo sai da tela e some ao chegar no CTA final
+    // Botão fixo: aparece depois que o botão do topo sai da tela e some quando outro botão está visível
     var sticky = document.getElementById("sticky");
     var heroCta = document.getElementById("hero-cta");
     var finalCta = document.getElementById("final-cta");
+    var inlineCtas = document.querySelectorAll(".js-inline-cta");
     var ticking = false;
     function updateSticky() {
       ticking = false;
       var vh = window.innerHeight;
       var pastHero = heroCta.getBoundingClientRect().bottom < 0;
       var atFinal = finalCta.getBoundingClientRect().top < vh;
-      sticky.classList.toggle("show", pastHero && !atFinal);
+      var inlineVisible = false;
+      inlineCtas.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < vh && r.bottom > 0) inlineVisible = true;
+      });
+      sticky.classList.toggle("show", pastHero && !atFinal && !inlineVisible);
     }
     window.addEventListener("scroll", function () {
       if (!ticking) { ticking = true; requestAnimationFrame(updateSticky); }
@@ -370,13 +389,18 @@
     var shots = document.getElementById("shots");
     var dots = document.querySelectorAll("#dots button");
     var current = 0, pausedUntil = 0;
-    function goTo(i) { shots.scrollTo({ left: i * shots.clientWidth, behavior: "smooth" }); }
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function setCurrent(i) {
+      current = i;
+      dots.forEach(function (d, j) { d.setAttribute("aria-current", j === i ? "true" : "false"); });
+    }
+    function goTo(i) {
+      setCurrent(i);
+      shots.scrollTo({ left: i * shots.clientWidth, behavior: reduceMotion ? "auto" : "smooth" });
+    }
+    // Atualiza as bolinhas quando a pessoa arrasta com o dedo
     shots.addEventListener("scroll", function () {
-      var i = Math.round(shots.scrollLeft / shots.clientWidth);
-      if (i !== current) {
-        current = i;
-        dots.forEach(function (d, j) { d.setAttribute("aria-current", j === i ? "true" : "false"); });
-      }
+      if (Date.now() < pausedUntil) setCurrent(Math.round(shots.scrollLeft / shots.clientWidth));
     }, { passive: true });
     ["pointerdown", "touchstart", "wheel"].forEach(function (ev) {
       shots.addEventListener(ev, function () { pausedUntil = Date.now() + 8000; }, { passive: true });
@@ -384,14 +408,12 @@
     dots.forEach(function (d, j) {
       d.addEventListener("click", function () { pausedUntil = Date.now() + 8000; goTo(j); });
     });
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setInterval(function () {
-        if (Date.now() < pausedUntil || document.hidden) return;
-        var r = shots.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > window.innerHeight) return;
-        goTo((current + 1) % dots.length);
-      }, 3500);
-    }
+    setInterval(function () {
+      if (Date.now() < pausedUntil || document.hidden) return;
+      var r = shots.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      goTo((current + 1) % dots.length);
+    }, 3500);
 
     if (!("IntersectionObserver" in window)) {
       revealEls.forEach(function (el) { el.classList.add("in"); });
